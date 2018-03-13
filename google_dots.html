@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>dots on google maps</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+	function initMap() {
+        var myLatLng = {lat: 21.363, lng: 25.044};
+	
+	var dots = [];
+	dots[0] = {lat: -45.63, lng: 130.044};
+	dots[1] = {lat: -27.63, lng: 191.044};
+	dots[2] = {lat:  11.563, lng: -35.044};
+	dots[3] = {lat: -24.33, lng: 160.044};
+	dots[4] = {lat:  24.33, lng: 11.044};
+	dots[5] = {lat: -44.33, lng: 41.044};
+	dots[6] = {lat: -23.33, lng: 6.044};
+	dots[7] = {lat: -4.33, lng: 161.044};
+	dots[8] = {lat:  64.33, lng: 161.03};
+        dots[9] = {lat:  1.33, lng: 161.03};
+	dots[10] = {lat:  24.33, lng: 21.03};
+	dots[11] = {lat:  54.33, lng: 171.03};
+        dots[12] = {lat:  4.33, lng: 1.03};
+// жалко, че нито 1 от тези точки не уцели българия 
+	
+	 var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: myLatLng
+        });
+
+        /*var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+	*/
+
+	for (var i = 0; i < dots.length; i++){
+	var markers = new google.maps.Marker({
+          position: dots[i],
+          map: map,
+          title: 'place: ' + i
+        });
+      }
+}	
+
+     
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key= AIzaSyDf0HPZdH55RXP3plihJRyv3pSD04vO2Pc  &callback=initMap">
+    </script>
+  </body>
+</html>
+
+
+
