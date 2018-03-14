@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>dots on google maps</title>
+    <style>
+     
+      #map {
+        height: 100%;
+      }
+          html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+ <script src="read from database.js"></script> 
+    <div id="map"></div>
+    <script>
+
+	function initMap() {
+    
+	function readFromDb(){
+	
+	}
+
+	var myLatLng = {lat: 21.363, lng: 25.044};	
+	var dots = [];
+	
+	 var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: myLatLng
+        });
+
+		function addMarker(props){
+        var marker = new google.maps.Marker({
+          position:props.coords,
+          map:map,
+          //icon:props.iconImage
+        });
+
+        // Check for customicon
+        if(props.iconImage){
+          // Set icon image
+          marker.setIcon(props.iconImage);
+        }
+
+        // Check content
+        if(props.content){
+          var infoWindow = new google.maps.InfoWindow({
+            content:props.content
+          });
+
+          marker.addListener('click', function(){
+            infoWindow.open(map, marker);
+          });
+        }
+      }
+	  
+    var cor = [];
+	cor[0] = {coords:{lat: -47.63, lng: 11.044},
+	content:'<h1>d</h1>'};
+	cor[1] = {coords:{lat: -45.63, lng: 130.044},
+	content:'<h1>fis</h1>'};
+	cor[2] = {coords:{lat:  11.563, lng: -35.044},
+	content:'<h1>dfisjrdjio MA</h1>'};
+	cor[3] = {coords:{lat: -24.33, lng: 160.044}};
+	//content:'<h1></h1>'};
+	cor[4] = {coords:{lat:  24.33, lng: 11.044},
+	content:'<h1>dfidjio MA</h1>'};
+	cor[5] = {coords:{lat: -44.33, lng: 41.044},
+	content:'<h1>df MA</h1>'};
+	cor[6] = {coords:{lat: -23.33, lng: 6.044},
+	content:'<h1>nekade</h1>'};
+	cor[7] = {coords:{lat: -4.33, lng: 161.044},
+	content:'<h1>nikude</h1>'};
+	cor[8] = {coords:{lat:  64.33, lng: 161.03},
+	content:'<h1>tuk</h1>'};
+	cor[9] = {coords: {lat:  1.33, lng: 161.03},
+	content:'<h1>tam</h1>'};
+	cor[10] = {coords:{lat:  24.33, lng: 21.03},
+	content:'<h1>zagubil se</h1>'};
+	cor[11] = {coords:{lat:  54.33, lng: 171.03},
+	content:'<h1>dfisjrdjio MA</h1>'};
+	cor[12] = {coords:{lat:  4.33, lng: 1.03},
+	content:'<h1>dfisjrdjio MA</h1>'};
+	cor[13] = {coords:{lat: 7.63, lng: 18.044},
+	content:'<h1>dfisjrdjio MA</h1>'};
+	
+	for (var i = 0; i < cor.length; i++){
+	addMarker(cor[i]);
+	}	
+	
+}	
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key= AIzaSyDf0HPZdH55RXP3plihJRyv3pSD04vO2Pc  &callback=initMap">
+// AIzaSyAMxmH-QdVz8R-zleENLpWf9ZkcIQ41DHM // other key just in case
+    </script>
+  </body>
+</html>
+
+
